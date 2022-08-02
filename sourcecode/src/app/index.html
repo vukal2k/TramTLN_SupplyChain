@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Supply Chain DAPP</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+</head>
+<style>
+    input {
+        display: block;
+        margin-bottom: 12px;
+    }
+
+    .customTable {
+        border: 1px solid;
+    }
+
+    .customTable {
+        width: 100%;
+        border-collapse: collapse;
+    }
+</style>
+
+<body>
+    <h1>Supply Chain DAPP</h1>
+    <table>
+        <tr>
+            <td>
+                Add to Farmers: <input id="farmerId" type="text" /> 
+                <button onclick="App.modifyRole('addFarmer','farmerId')">Add</button>|<button onclick="App.modifyRole('renounceFarmer', 'farmerId')">Remove</button>
+            </td>
+            <td>
+                Add to Distributors: <input id="distributorId" type="text" /> 
+                <button onclick="App.modifyRole('addDistributor', 'distributorId')">Add</button>|<button onclick="App.modifyRole('renounceDistributor', 'distributorId')">Remove</button>
+            </td>
+            <td>
+                Add to Retailers: <input id="retailerId" type="text" /> 
+                <button onclick="App.modifyRole('addRetailer', 'retailerId')">Add</button>|<button onclick="App.modifyRole('renounceRetailer', 'retailerId')">Remove</button>
+            </td>
+            <td>
+                Add to Consumers: <input id="consumerId" type="text" /> 
+                <button onclick="App.modifyRole('addConsumer', 'retailerId')">Add</button>|<button onclick="App.modifyRole('renounceConsumer', 'retailerId')">Remove</button>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <h3>Create shipment</h3>
+    <table>
+        <tr>
+            <td>
+                Harvest:
+            </td>
+            <td>
+                upc: <input id="harvest_upcId" type="number" />
+            </td>
+            <td>
+                sku: <input id="harvest_skuId" type="number" />
+            </td>
+            <td>
+                Farmer wallet: <input id="harvest_farmerId" type="text" />
+            </td>
+            <td>
+                <button onclick="App.havestItem()">Havest Item</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Process:
+            </td>
+            <td>
+                upc: <input id="process_upcId" type="number" />
+            </td>
+            <td>
+                <button onclick="App.processItem()">Process Item</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Pack:
+            </td>
+            <td>
+                upc: <input id="pack_upcId" type="number" />
+            </td>
+            <td>
+                <button onclick="App.packItem()">Pack Item</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                For sale:
+            </td>
+            <td>
+                upc: <input id="forSale_upcId" type="number" />
+            </td>
+            <td>
+                price: <input id="forSale_price" type="number" />
+            </td>
+            <td>
+                <button onclick="App.saleItem()">Sale Item</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Buy:
+            </td>
+            <td>
+                upc: <input id="buy_upcId" type="number" />
+            </td>
+            <td>
+                price: <input id="buy_price" type="number" />
+            </td>
+            <td>
+                <button onclick="App.buyItem()">Buy Item</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Ship:
+            </td>
+            <td>
+                upc: <input id="ship_upcId" type="number" />
+            </td>
+            <td>
+                <button onclick="App.shipItem()">Ship Item</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Receive:
+            </td>
+            <td>
+                upc: <input id="receive_upcId" type="number" />
+            </td>
+            <td>
+                <button onclick="App.receiveItem()">Receive Item</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Purchase:
+            </td>
+            <td>
+                upc: <input id="purchase_upcId" type="number" />
+            </td>
+            <td>
+                <button onclick="App.purchaseItem()">Purchase Item</button>
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <h3>Fetch product</h3>
+    UPC: <input id="fetch_upc" type="number"/>
+    <button onclick="App.fetch()">Fetch</button>
+    <table class="customTable">
+        <tr>
+            <th style="border: 1px solid">upc</th>
+            <th style="border: 1px solid">sku</th>
+            <th style="border: 1px solid">Product Id</th>
+            <th style="border: 1px solid">Price</th>
+            <th style="border: 1px solid">owner</th>
+            <th style="border: 1px solid">state</th>
+        </tr>
+        <tr id="itemData"></tr>
+    </table>
+
+    <hr/>
+    <script src="index.js"></script>
+</body>
+
+</html>
